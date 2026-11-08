@@ -16,10 +16,9 @@ data "google_project" "this" {
 locals {
   state_bucket_name = coalesce(var.state_bucket_name, "${var.project_id}-tfstate")
 
-  # Built from the project number rather than the pool resource so callers can
-  # write import blocks whose ids are known at plan time.
-  pool_name      = "projects/${data.google_project.this.number}/locations/global/workloadIdentityPools/${var.pool_id}"
-  deployer_email = "${var.deployer_account_id}@${var.project_id}.iam.gserviceaccount.com"
+  # Built from the project number rather than the pool resource so the member
+  # string is known at plan time (import ids in callers depend on it).
+  pool_name = "projects/${data.google_project.this.number}/locations/global/workloadIdentityPools/${var.pool_id}"
 
   # With a protected environment, only jobs running in that GitHub environment
   # can impersonate the deployer. Otherwise any workflow in the repository can.
