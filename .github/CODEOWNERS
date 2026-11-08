@@ -1,0 +1,4 @@
+# Every change needs the maintainer's review; workflows and modules most of all.
+*                   @orealvic
+/.github/           @orealvic
+/modules/           @orealvic

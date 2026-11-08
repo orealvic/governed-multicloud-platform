@@ -1,0 +1,17 @@
+# Policy-as-code for this repository's Terraform and workflows.
+# Every skip needs a reason; review this list when the modules change.
+directory:
+  - .
+framework:
+  - terraform
+  - github_actions
+quiet: true
+compact: true
+skip-check:
+  # The WIF provider's attribute condition pins assertion.repository (and
+  # optionally repository_id). Both claims are set by GitHub and cannot be
+  # chosen by a workflow; this check only accepts conditions on assertion.sub.
+  - CKV_GCP_125
+  # State bucket access is recorded through Cloud Audit Logs (Data Access for
+  # Cloud Storage) rather than legacy bucket access logs to a second bucket.
+  - CKV_GCP_62
