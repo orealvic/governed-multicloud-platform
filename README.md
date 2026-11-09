@@ -39,7 +39,7 @@ The controls, and the risk each one removes:
 | Policy-as-code on every change | Checkov, tflint, actionlint | Known misconfigurations shipping |
 | Versioned, destroy-protected remote state | `modules/gcp-wif-bootstrap` | Lost or corrupted state |
 
-Why each decision was made: [`docs/adr`](docs/adr).
+Why each decision was made: [`docs/adr`](docs/adr). How every part works, file by file: [`docs/guide`](docs/guide).
 
 ## Contents
 
